@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@font-face{
+    font-family:SpaceGrotesk-Bold;
+    src: url(../../public/fonts/SpaceGrotesk-Bold.ttf);
+  }
+.font-SpaceGrotesk-Bold{
+    font-family:SpaceGrotesk-Bold!important;
+}
+
+@font-face{
+    font-family:SpaceGrotesk-Medium;
+    src: url(../../public/fonts/SpaceGrotesk-Medium.ttf);
+  }
+.font-Space-Grotesk-Medium{
+    font-family:SpaceGrotesk-Medium!important;
+}
+
+@font-face{
+    font-family:SpaceGrotesk-Regular;
+    src: url(../../public/fonts/SpaceGrotesk-Regular.ttf);
+  }
+  
+.font-space-grotesk-regular{
+    font-family:SpaceGrotesk-Regular!important;
+}
+@font-face{
+    font-family:Cubano;
+    src: url(../../public/fonts/Cubano.ttf);
+  }
+.font-Cubano{
+    font-family:Cubano!important;
+}
+@font-face{
+    font-family:Roboto-Regular;
+    src: url(../../public/fonts/Roboto-Regular.ttf);
+  }
+.font-Roboto-Regular{
+    font-family:Roboto-Regular!important;
+}
+
+
+
+
+
+  select:focus-visible {
+    outline: none !important;
+  }
+
+
+
+  /* calendario */
+
+@layer utilities {
+  /* Oculta la fila de encabezados con los días de la semana */
+  .fc-col-header {
+    @apply hidden;
+  }
+}
+@layer utilities {
+
+  .fc, 
+  .fc *, 
+  .fc-theme-standard td, 
+  .fc-theme-standard th, 
+  .fc-scrollgrid, 
+  .fc-scrollgrid-sync-table {
+    border: none !important;
+  }
+
+  /*  permitir líneas visibles */
+  .fc-scrollgrid,
+  .fc-scrollgrid-sync-table,
+  .fc-daygrid-body table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+  }
+
+  /* Líneas de contenedor real de cada día */
+  .fc-daygrid-day-frame {
+    @apply border border-[#CCCCCC];
+    border-width: 1px !important;
+    border-color: #CCCCCC !important;
+    border-style: solid !important;
+  }
+
+/*  izquierdo */
+.fc-daygrid-day:first-child .fc-daygrid-day-frame {
+  border-left: none !important;
+}
+
+/*derecho */
+.fc-daygrid-day:last-child .fc-daygrid-day-frame {
+  border-right: none !important;
+}
+
+/*  arriba  */
+.fc-daygrid-body tr:first-child .fc-daygrid-day .fc-daygrid-day-frame {
+  border-top: none !important;
+}
+
+/* abajo */
+.fc-daygrid-body tr:last-child .fc-daygrid-day .fc-daygrid-day-frame {
+  border-bottom: none !important;
+}
+
+
+
+  /* 🟦 Borde exterior y sombra general */
+  #calendar {
+    @apply rounded-[15px] shadow-lg border  border-[#CCCCCC] ;
+  }
+}
+
+@layer utilities {
+  /* Centrar horizontalmente y 5px desde arriba */
+  #calendar .fc-daygrid-day-top {
+    display: flex !important;
+    justify-content: center !important;
+    padding-top: 10px !important;
+  }
+
+  /* Número del día: centrado, color y fuente */
+  #calendar .fc-daygrid-day-number {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    color: #CCCCCC !important;
+    font-family:SpaceGrotesk-Medium !important;
+  }
+}
+
+
+@layer utilities {
+  /* Quitar fondo amarillo del "hoy" */
+  #calendar { --fc-today-bg-color: transparent; } /* v6 usa esta var */
+  #calendar .fc-day-today { background-color: transparent !important; } /* refuerzo */
+}
+
+
+
+
+@layer utilities {
+  /* Altura por fila: 234 px  → 5 filas */
+  #calendar .fc-daygrid { 
+    --fc-daygrid-row-min-height: 234px; 
+  }
+
+  /* Siempre 5 filas: si existe la 6ª, ocultarla */
+  #calendar .fc-daygrid-body tr:nth-child(6) { 
+    display: none !important; 
+  }
+
+  /* Asegurar que cada celda estire a la altura de su fila */
+  #calendar .fc-daygrid-body,
+  #calendar .fc-daygrid-body table { height: 100% !important; }
+  #calendar .fc-daygrid-day-frame { min-height: 100% !important; }
+}
+
+@layer utilities {
+  /* Tamaño fijo y estilo del chip de evento */
+  #calendar .fc-daygrid-event {
+    width: 175px !important;
+    height: 26px !important;
+    margin: 4px auto !important;        /* centra horizontal + separación vertical */
+    border-radius: 5px !important;
+    border: none !important;             /* que no choque con el anillo */
+    box-shadow: 0 0 0 1px #CCCCCC !important; /* “margen” externo súper delgado */
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Centrar el texto dentro del chip y respetar 13px si ya lo pusiste */
+  #calendar .fc-daygrid-event .fc-event-main {
+    display: flex !important;
+    align-items: center !important;  /* centra vertical */
+    justify-content: center !important; /* centra horizontal */
+    height: 100% !important;
+    line-height: 1 !important;
+    padding: 0 8px !important;     
+    font-size: 12px !important;     /* aire lateral sin cambiar la altura */
+  }
+}
