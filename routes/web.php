@@ -127,18 +127,15 @@ Route::prefix('gastronomica')->group(function () {
         ->name('gastronomica.precio.mostrar');
 });
 
-// UBICACIÓN 
-Route::prefix('ubicacion')->group(function () {
-    Route::get('/', [UbicacionController::class, 'index'])->name('ubicacion.index');
-
-    Route::get('/{ubicacion}', [UbicacionController::class, 'mostrar'])
-        ->name('ubicacion.mostrar');
-
-    Route::get('/{ubicacion}/{pagina}', [UbicacionController::class, 'mostrarSubpagina'])
-        ->name('ubicacion.subpagina');
+ 
+// UBICACIÓN
+Route::get('/gastronomica/ubicacion/cdmx', function () {
+    return view('frontend.gastronomica.ubicacion.cdmx.cdmx');
 });
 
-Route::prefix('plantillas')->group(function () {
-    Route::get('/cdmx/{nombre}', [PlantillasController::class, 'mostrar'])
-        ->name('plantillas.cdmx.mostrar');
-});
+
+    // PLANTILLAS CDMX
+    Route::prefix('plantillas')->group(function () {
+        Route::get('/cdmx/{nombre}', [PlantillasController::class, 'mostrar'])
+            ->name('plantillas.cdmx.mostrar');
+    });

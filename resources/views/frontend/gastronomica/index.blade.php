@@ -53,7 +53,7 @@
 
       <!-- UBICACIÓN -->
       <div class="relative group">
-        <select id="ubicacionSelect"
+<select id="ubicacionSelect"
           class="bg-white/90 border-[2.5px] border-[#FF3696] text-[#534741] rounded-full px-6 py-2 w-56 text-center font-space-grotesk-regular appearance-none cursor-pointer z-[9999] transition-colors duration-300"
           onchange="cambiarUbicacion()">
           <option selected disabled>- UBICACIÓN -</option>
@@ -68,6 +68,7 @@
           <option value="valledeguadalupe">VALLE DE GUADALUPE</option>
           <option value="veracruz">VERACRUZ</option>
         </select>
+
         <span
           class="absolute right-6 top-1/2 -translate-y-1/2 w-2.5 h-2.5 border-r-[2.5px] border-b-[2.5px] border-[#F82A8B] rotate-45 transition-transform duration-300 group-focus-within:-rotate-135 pointer-events-none"></span>
       </div>
@@ -95,7 +96,7 @@
           onchange="cambiarComida()">
           <option selected disabled>- TIPO DE COMIDA -</option>
           <option value="tradicional">TRADICIONAL</option>
-          <option value="alta-cocina">ALTA COCINA</option>
+          <option value="alta">ALTA COCINA</option>
           <option value="vegana">VEGANA</option>
           <option value="fusion">FUSIÓN</option>
         </select>
@@ -124,7 +125,6 @@
 
   {{-- SCRIPTS FILTROS --}}
   <script>
-
 
 function cambiarUbicacion() {
   const seleccion = document.getElementById("ubicacionSelect").value;

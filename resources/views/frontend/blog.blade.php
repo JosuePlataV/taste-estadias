@@ -162,7 +162,7 @@
     </div>
   </section>
 
-  <section class="h-[2300px] bg-[#FFF7EF] container">
+  <section class="h-[2050px] bg-[#FFF7EF] container">
     <nav class="flex justify-center items-center gap-8 font-SpaceGrotesk-Bold text-[#534741] text-[17px] pt-10">
       <div class="flex items-center gap-3">
         <a href="{{ url('blog') }}"

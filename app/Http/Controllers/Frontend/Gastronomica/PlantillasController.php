@@ -8,14 +8,11 @@ class PlantillasController extends Controller
 {
     public function mostrar($nombre)
     {
-        
         $vistasDisponibles = [
             'pangea',
-            
         ];
 
         if (in_array($nombre, $vistasDisponibles)) {
-
             return view("frontend.gastronomica.plantillas.cdmx.$nombre");
         }
 

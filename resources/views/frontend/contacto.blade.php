@@ -49,7 +49,7 @@
           <img src="{{ asset('img/yotube.svg') }}" alt="YouTube" class=" h-[40px]" />
         </button>
         <button>
-          <img src="{{ asset('img/tik.svg') }}" alt="TikTok" class="h-[40px]" />
+          <img src="{{ asset('img/TikTok.svg') }}" alt="TikTok" class="h-[40px]" />
         </button>
       </div>
 
